@@ -37,25 +37,20 @@ public class MainActivity extends AppCompatActivity {
                 // Here you would typically start a new activity or perform some action
             }
         };
-        btnHealthMetrics.setOnClickListener(new View.OnClickListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                    // Create intent to open HealthMetricsActivity
-                                                    Intent intent = new Intent(MainActivity.this, HealthMetricsActivity.class);
-                                                    startActivity(intent);
-                                                }
-                                            });
+
 
         btnSyncDevice.setOnClickListener(buttonClickListener);
         btnExportData.setOnClickListener(buttonClickListener);
         btnManageAccount.setOnClickListener(buttonClickListener);
-        btnHealthMetrics.setOnClickListener(buttonClickListener);
+//
         btnUpdateProfile.setOnClickListener(buttonClickListener);
         btnViewHealthData.setOnClickListener(buttonClickListener);
         btnHome.setOnClickListener(buttonClickListener);
         btnHealthMetricsNav.setOnClickListener(buttonClickListener);
         btnNotification.setOnClickListener(buttonClickListener);
         btnSettings.setOnClickListener(buttonClickListener);
+
+
 
         // Emergency SOS long press
         View emergencySosArea = findViewById(R.id.emergencySosArea); // You'll need to add this ID to your layout
@@ -67,5 +62,18 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        View.OnClickListener buttonClickListener1 = new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, HealthMetricsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        };
+        btnHealthMetrics.setOnClickListener(buttonClickListener1);
+    }
+    public void onClickBack1(View v) {
+        Intent intent1 = new Intent(MainActivity.this, HealthMetricsActivity.class);
+        startActivity(intent1);
+        finish();
     }
 }
