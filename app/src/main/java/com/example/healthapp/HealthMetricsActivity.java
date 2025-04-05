@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HealthMetricsActivity extends AppCompatActivity {
+public class HealthMetricsActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

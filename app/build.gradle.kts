@@ -32,6 +32,14 @@ android {
 }
 
 dependencies {
+    implementation(libs.material.v160)
+    implementation(libs.appcompat.v161)
+    implementation(libs.constraintlayout.v214)
+    implementation(libs.activity.ktx)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.junit.v115)
+    androidTestImplementation(libs.espresso.core.v351)
 
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -40,4 +48,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
 }

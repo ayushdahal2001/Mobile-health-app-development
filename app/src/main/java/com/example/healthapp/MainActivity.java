@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 
     @Override
@@ -24,31 +24,11 @@ public class MainActivity extends AppCompatActivity {
         Button btnUpdateProfile = findViewById(R.id.btnUpdateProfile);
         Button btnViewHealthData = findViewById(R.id.btnViewHealthData);
         Button btnHome = findViewById(R.id.btnHome);
-        Button btnHealthMetricsNav = findViewById(R.id.btnHealthMetricsNav);
+//        Button btnHealthMetricsNav = findViewById(R.id.btnHealthMetricsNav);
         Button btnNotification = findViewById(R.id.btnNotification);
         Button btnSettings = findViewById(R.id.btnSettings);
+        Button btnLogin = findViewById(R.id.btnLogin);
 
-        // Set click listeners for all buttons
-        View.OnClickListener buttonClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String buttonText = ((Button) v).getText().toString();
-                Toast.makeText(MainActivity.this, buttonText + " clicked", Toast.LENGTH_SHORT).show();
-                // Here you would typically start a new activity or perform some action
-            }
-        };
-
-
-        btnSyncDevice.setOnClickListener(buttonClickListener);
-        btnExportData.setOnClickListener(buttonClickListener);
-        btnManageAccount.setOnClickListener(buttonClickListener);
-//
-        btnUpdateProfile.setOnClickListener(buttonClickListener);
-        btnViewHealthData.setOnClickListener(buttonClickListener);
-        btnHome.setOnClickListener(buttonClickListener);
-        btnHealthMetricsNav.setOnClickListener(buttonClickListener);
-        btnNotification.setOnClickListener(buttonClickListener);
-        btnSettings.setOnClickListener(buttonClickListener);
 
 
 
@@ -62,18 +42,42 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        // healthmerticintent
         View.OnClickListener buttonClickListener1 = new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, HealthMetricsActivity.class);
                 startActivity(intent);
-                finish();
+
             }
         };
         btnHealthMetrics.setOnClickListener(buttonClickListener1);
-    }
-    public void onClickBack1(View v) {
-        Intent intent1 = new Intent(MainActivity.this, HealthMetricsActivity.class);
-        startActivity(intent1);
-        finish();
+
+        //notification intent
+        View.OnClickListener buttonClickListener2 = new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NotificationsActivity.class);
+                startActivity(intent);
+
+            }
+        };
+        btnNotification.setOnClickListener(buttonClickListener2);
+
+        View.OnClickListener buttonClickListener3 = new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+
+            }
+        };
+        btnSettings.setOnClickListener(buttonClickListener3);
+
+        View.OnClickListener buttonClickListener4 = new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SignupActivity.class);
+                startActivity(intent);
+
+            }
+        };
+        btnLogin.setOnClickListener(buttonClickListener4);
     }
 }

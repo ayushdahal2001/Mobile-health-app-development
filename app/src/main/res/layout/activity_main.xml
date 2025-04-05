@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:paddingTop="70dp"
+    android:paddingBottom="70dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +25,7 @@
                 android:id="@+id/tvGreeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Good morning"
+
                 android:textSize="24sp"
                 android:textColor="#000000"/>
 
@@ -292,52 +294,74 @@
                     android:text="Export Data"
                     android:background="@drawable/button_background"/>
             </LinearLayout>
-
-            <!-- Bottom Navigation -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="4"
-                android:background="#F5F5F5"
-                android:paddingVertical="8dp">
+                android:weightSum="2"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp">
 
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Login"
+                    android:background="@drawable/button_background"
+                    android:layout_marginEnd="8dp"/>
+
+                <Button
+                    android:id="@+id/btnSignup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sign Up"
+                    android:background="@drawable/primary_button_background"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <!-- Bottom Navigation -->
+            <!-- Bottom Navigation -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:background="#FFFFFF"
+                android:elevation="4dp"
+                android:weightSum="3">  <!-- Changed from 4 to 3 -->
+
+                <!-- Home -->
                 <Button
                     android:id="@+id/btnHome"
+                    style="@style/BottomMenuButton"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="Home"
-                    android:background="@android:color/transparent"
-                    android:textColor="#000000"/>
+                    android:drawableTop="@drawable/ic_home"/>
 
-                <Button
-                    android:id="@+id/btnHealthMetricsNav"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Health Metrics"
-                    android:background="@android:color/transparent"
-                    android:textColor="#000000"/>
-
+                <!-- Notifications -->
                 <Button
                     android:id="@+id/btnNotification"
+                    style="@style/BottomMenuButton"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Notification"
-                    android:background="@android:color/transparent"
-                    android:textColor="#000000"/>
+                    android:text="Alerts"
+                    android:drawableTop="@drawable/ic_notification"/>
 
+                <!-- Settings -->
                 <Button
                     android:id="@+id/btnSettings"
+                    style="@style/BottomMenuButton"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="Settings"
-                    android:background="@android:color/transparent"
-                    android:textColor="#000000"/>
+                    android:drawableTop="@drawable/ic_settings"/>
             </LinearLayout>
+
             <!-- Emergency SOS Section -->
             <LinearLayout
                 android:id="@+id/emergencySosArea"
@@ -366,6 +390,13 @@
                     android:textColor="#666666"
                     android:layout_marginTop="8dp"/>
             </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+
+</LinearLayout>
+
+
+</LinearLayout>
+
+
+
+
 </ScrollView>
