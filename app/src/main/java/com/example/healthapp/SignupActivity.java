@@ -1,78 +1,76 @@
 package com.example.healthapp;
 
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.healthapp.BaseActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class SignupActivity extends MainActivity {
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 
-    private EditText nameEditText, emailEditText, passwordEditText;
+public class SignupActivity extends AppCompatActivity {
+
+    private TextInputEditText emailEditText, passwordEditText, confirmPasswordEditText;
     private Button signupButton;
+    private ProgressBar progressBar;
     private TextView loginRedirectText;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        nameEditText = findViewById(R.id.nameEditText);
+        auth = FirebaseAuth.getInstance();
+
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText = findViewById(R.id.passwordEditText);
+        confirmPasswordEditText = findViewById(R.id.confirmPasswordEditText);
         signupButton = findViewById(R.id.signupButton);
+        progressBar = findViewById(R.id.progressBar);
         loginRedirectText = findViewById(R.id.loginRedirectText);
 
-        signupButton.setOnClickListener(v -> {
-            String name = nameEditText.getText().toString();
-            String email = emailEditText.getText().toString();
-            String password = passwordEditText.getText().toString();
-
-            if (validateInputs(name, email, password)) {
-                // Perform signup logic
-                performSignup(name, email, password);
-            }
-        });
-
-        loginRedirectText.setOnClickListener(v -> {
-            startActivity(new Intent(SignupActivity.this, LoginActivity.class));
-            finish();
-        });
+        signupButton.setOnClickListener(v -> registerUser());
+        loginRedirectText.setOnClickListener(v -> startActivity(new Intent(SignupActivity.this, LoginActivity.class)));
     }
 
-    private boolean validateInputs(String name, String email, String password) {
-        if (name.isEmpty()) {
-            nameEditText.setError("Name is required");
-            return false;
-        }
+    private void registerUser() {
+        String email = emailEditText.getText().toString().trim();
+        String password = passwordEditText.getText().toString().trim();
+        String confirmPassword = confirmPasswordEditText.getText().toString().trim();
 
         if (email.isEmpty()) {
             emailEditText.setError("Email is required");
-            return false;
+            return;
         }
 
         if (password.isEmpty()) {
             passwordEditText.setError("Password is required");
-            return false;
+            return;
         }
 
-        if (password.length() < 6) {
-            passwordEditText.setError("Password must be at least 6 characters");
-            return false;
+        if (!password.equals(confirmPassword)) {
+            confirmPasswordEditText.setError("Passwords do not match");
+            return;
         }
 
-        return true;
-    }
+        progressBar.setVisibility(View.VISIBLE);
 
-    private void performSignup(String name, String email, String password) {
-        // Implement your signup logic here
-        // For example, Firebase Auth or API call
-
-        // On successful signup:
-        startActivity(new Intent(SignupActivity.this, MainActivity.class));
-        finish();
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
+                    progressBar.setVisibility(View.GONE);
+                    if (task.isSuccessful()) {
+                        Toast.makeText(SignupActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(SignupActivity.this, LoginActivity.class));
+                        finish();
+                    } else {
+                        Toast.makeText(SignupActivity.this, "Registration failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

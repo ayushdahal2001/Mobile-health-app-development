@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">HealthApp</string>
+
+
+    <string name="logout_title">Confirm Logout</string>
+    <string name="logout_confirmation_message">Are you sure you want to sign out?</string>
+    <string name="logout_confirm">Logout</string>
+    <string name="cancel">Cancel</string>
+    <string name="logout_success">Logged out successfully</string>
 </resources>

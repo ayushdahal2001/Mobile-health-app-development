@@ -1,128 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:paddingTop="70dp"
-
-    android:paddingBottom="70dp">
-
-<LinearLayout
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="vertical">
-
-<!-- Settings Header -->
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Settings"
-    android:textSize="24sp"
-    android:textStyle="bold"
-    android:layout_marginBottom="24dp"/>
-
-<!-- Dark Mode Toggle -->
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="@drawable/settings_item_background"
     android:padding="16dp"
-    android:layout_marginBottom="16dp">
+    android:background="#FFFFFF">
 
-    <TextView
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Dark Mode"
-        android:textSize="16sp"
-        android:gravity="center_vertical"/>
+        android:orientation="vertical">
 
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/themeSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"/>
-</LinearLayout>
+        <!-- Settings Header -->
 
-<!-- Rest of your settings items -->
-<Button
-    android:id="@+id/btnLanguage"
-    style="@style/SettingsItemStyle"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Language"
-    android:background="@drawable/settings_item_background"
-    android:textAllCaps="false"
-    android:textSize="16sp"
-    android:padding="16dp"
-    android:textColor="@color/black"
-    android:layout_marginBottom="8dp"/>
+        <!-- Dark Mode Toggle -->
 
-<Button
-    android:id="@+id/btnPrivacy"
-    style="@style/SettingsItemStyle"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Privacy and Security"
-    android:background="@drawable/settings_item_background"
-    android:textAllCaps="false"
-    android:textSize="16sp"
-    android:textColor="@color/black"
-    android:padding="16dp"
-    android:layout_marginBottom="8dp"/>
+        <!-- Rest of your settings items -->
 
-<Button
-    android:id="@+id/btnManageAccount"
-    style="@style/SettingsItemStyle"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Manage Account"
-    android:background="@drawable/settings_item_background"
-    android:textAllCaps="false"
-    android:textSize="16sp"
-    android:padding="16dp"
-    android:textColor="@color/black"
-    android:layout_marginBottom="16dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_marginBottom="24dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-<!-- Device Section -->
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Fitbit Charge 5"
-    android:textColor="#97CEEB"
-    android:textSize="16sp"
-    android:textStyle="bold"
-    android:layout_marginBottom="8dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/settings_item_background"
+            android:orientation="horizontal"
+            android:padding="45dp">
 
-<TextView
-    android:id="@+id/tvLastSynced"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Last synced 2 hours ago"
-    android:textSize="14sp"
-    android:textColor="#666666"
-    android:layout_marginBottom="4dp"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Dark Mode"
+                android:textSize="20sp" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Connected"
-    android:textSize="14sp"
-    android:textColor="#4CAF50"
-    android:layout_marginBottom="16dp"/>
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/themeSwitch"
+                android:layout_width="66dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
 
-<!-- Sync Button -->
-<Button
-    android:id="@+id/btnSyncDevice"
-    style="@style/SettingsItemStyle"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Sync Device"
-    android:background="@drawable/primary_button_background"
-    android:textColor="#FFFFFF"
-    android:textAllCaps="false"
-    android:textSize="16sp"
-    android:padding="16dp"/>
-</LinearLayout>
-    </ScrollView>
+        <Button
+            android:id="@+id/btnLanguage"
+            style="@style/SettingsItemStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Language"
+            android:background="@color/red_500"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnPrivacy"
+            style="@style/SettingsItemStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Privacy and Security"
+            android:background="@color/red_500"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnManageAccount"
+            style="@style/SettingsItemStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/red_500"
+            android:padding="16dp"
+            android:text="Manage Account"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            style="@style/SettingsItemStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/red_500"
+            android:text="Logout" />
+
+
+    </LinearLayout>
+</ScrollView>

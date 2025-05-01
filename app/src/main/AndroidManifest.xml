@@ -15,7 +15,7 @@
 
 
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true"
             android:launchMode="singleTop"
             >
@@ -41,5 +41,12 @@
             android:name=".SettingsActivity"
             android:label="Settings"
             android:parentActivityName=".MainActivity"/>
+
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ManageAccountActivity" />
+
     </application>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 </manifest>

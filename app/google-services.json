@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "382012778004",
+    "project_id": "healthmonitoringapp-26921",
+    "storage_bucket": "healthmonitoringapp-26921.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382012778004:android:c3ef30958bb2b38ac92901",
+        "android_client_info": {
+          "package_name": "com.example.healthapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382012778004-q7i9fssod14j5kpbr9bbiomlm0drm7fi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfyoeYFHFb_gKOUSk36cXunvtBnq_qTKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382012778004-q7i9fssod14j5kpbr9bbiomlm0drm7fi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382012778004:android:e522b64b407e203ac92901",
+        "android_client_info": {
+          "package_name": "com.example.healthmonitoring_app.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "382012778004-q7i9fssod14j5kpbr9bbiomlm0drm7fi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfyoeYFHFb_gKOUSk36cXunvtBnq_qTKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "382012778004-q7i9fssod14j5kpbr9bbiomlm0drm7fi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

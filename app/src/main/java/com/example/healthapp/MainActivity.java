@@ -1,20 +1,23 @@
 package com.example.healthapp;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends BaseActivity {
 
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        auth = FirebaseAuth.getInstance();
+
 
         // Initialize buttons and set click listeners
         Button btnSyncDevice = findViewById(R.id.btnSyncDevice);
@@ -24,60 +27,38 @@ public class MainActivity extends BaseActivity {
         Button btnUpdateProfile = findViewById(R.id.btnUpdateProfile);
         Button btnViewHealthData = findViewById(R.id.btnViewHealthData);
         Button btnHome = findViewById(R.id.btnHome);
-//        Button btnHealthMetricsNav = findViewById(R.id.btnHealthMetricsNav);
         Button btnNotification = findViewById(R.id.btnNotification);
         Button btnSettings = findViewById(R.id.btnSettings);
-        Button btnLogin = findViewById(R.id.btnLogin);
-
-
 
 
         // Emergency SOS long press
-        View emergencySosArea = findViewById(R.id.emergencySosArea); // You'll need to add this ID to your layout
+        View emergencySosArea = findViewById(R.id.emergencySosArea);
         emergencySosArea.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 Toast.makeText(MainActivity.this, "Emergency SOS activated!", Toast.LENGTH_LONG).show();
-                // Here you would implement actual emergency functionality
                 return true;
             }
         });
-        // healthmerticintent
-        View.OnClickListener buttonClickListener1 = new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, HealthMetricsActivity.class);
-                startActivity(intent);
 
-            }
-        };
-        btnHealthMetrics.setOnClickListener(buttonClickListener1);
+        // Set click listeners for buttons
+        btnHealthMetrics.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, HealthMetricsActivity.class)));
+        btnNotification.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, NotificationsActivity.class)));
+        btnSettings.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, SettingsActivity.class)));
+        // In your MainActivity's onCreate()
+        btnManageAccount = findViewById(R.id.btnManageAccount);
+        btnManageAccount.setOnClickListener(v ->
+                startActivity(new Intent(MainActivity.this, ManageAccountActivity.class)));
+    }
 
-        //notification intent
-        View.OnClickListener buttonClickListener2 = new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NotificationsActivity.class);
-                startActivity(intent);
-
-            }
-        };
-        btnNotification.setOnClickListener(buttonClickListener2);
-
-        View.OnClickListener buttonClickListener3 = new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
-
-            }
-        };
-        btnSettings.setOnClickListener(buttonClickListener3);
-
-        View.OnClickListener buttonClickListener4 = new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SignupActivity.class);
-                startActivity(intent);
-
-            }
-        };
-        btnLogin.setOnClickListener(buttonClickListener4);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly
+        if (auth.getCurrentUser() == null) {
+            // No user is signed in, redirect to LoginActivity
+            startActivity(new Intent(this, LoginActivity.class));
+            finish(); // Close MainActivity
+        }
     }
 }

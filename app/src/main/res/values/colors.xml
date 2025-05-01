@@ -21,6 +21,10 @@
         <color name="teal_200">#03DAC5</color>
         <color name="teal_700">#018786</color>
 
+    <color name="red_500">#F44336</color>
+    <color name="card_stroke_color">#1F000000</color>
+    <color name="error_color">#F44336</color>
+
 
 
 </resources>
