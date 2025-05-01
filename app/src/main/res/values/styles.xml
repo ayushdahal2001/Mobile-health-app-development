@@ -21,9 +21,9 @@
 
     <!-- Dark Theme -->
     <style name="AppTheme.Dark" parent="Theme.AppCompat">
-        <item name="colorPrimary">#212121</item>
+        <item name="colorPrimary">#000000</item>
         <item name="colorPrimaryDark">#000000</item>
-        <item name="colorAccent">#FF4081</item>
+        <item name="colorAccent">#0888CA</item>
         <item name="android:textColor">@color/text_primary_dark</item>
 
     </style>

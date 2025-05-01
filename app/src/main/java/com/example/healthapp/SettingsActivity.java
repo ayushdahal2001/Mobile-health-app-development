@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -31,8 +32,11 @@ public class SettingsActivity extends BaseActivity{
         themeSwitch = findViewById(R.id.themeSwitch);
 
         // Initialize logout button
+        Button btnManageAccount = findViewById(R.id.btnManageAccount);
         Button btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(v -> showSolidConfirmationDialog());
+
+
 
         // Set initial state for theme switch
         boolean isDarkMode = sharedPreferences.getBoolean("dark_mode", false);
@@ -44,6 +48,8 @@ public class SettingsActivity extends BaseActivity{
             updateTheme(isChecked);
             recreateAllActivities();
         });
+        btnManageAccount.setOnClickListener(v ->
+                startActivity(new Intent(SettingsActivity.this, ManageAccountActivity.class)));
     }
     private void showSolidConfirmationDialog() {
         new MaterialAlertDialogBuilder(this, R.style.SolidDialogTheme)

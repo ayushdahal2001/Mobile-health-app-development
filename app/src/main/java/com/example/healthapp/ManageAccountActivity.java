@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthCredential;
@@ -14,13 +16,15 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class ManageAccountActivity extends AppCompatActivity {
+public class ManageAccountActivity extends BaseActivity {
 
     private TextInputEditText etCurrentPassword, etNewPassword, etConfirmNewPassword;
     private Button btnChangePassword;
     private FirebaseAuth auth;
     private FirebaseUser user;
-    private View progressBar;
+    private View progressBar, passwordForm;
+    private ImageView ivExpandPassword;
+    private boolean isPasswordFormExpanded = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +41,27 @@ public class ManageAccountActivity extends AppCompatActivity {
         etConfirmNewPassword = findViewById(R.id.etConfirmNewPassword);
         btnChangePassword = findViewById(R.id.btnChangePassword);
         progressBar = findViewById(R.id.progressBar);
+        passwordForm = findViewById(R.id.passwordForm);
+        ivExpandPassword = findViewById(R.id.ivExpandPassword);
+
+        // Set up expand/collapse functionality
+        View passwordHeader = findViewById(R.id.passwordHeader);
+        passwordHeader.setOnClickListener(v -> togglePasswordForm());
 
         btnChangePassword.setOnClickListener(v -> changePassword());
+    }
+
+    private void togglePasswordForm() {
+        if (isPasswordFormExpanded) {
+            // Collapse the form
+            passwordForm.setVisibility(View.GONE);
+            ivExpandPassword.setImageResource(R.drawable.ic_expand_more);
+        } else {
+            // Expand the form
+            passwordForm.setVisibility(View.VISIBLE);
+            ivExpandPassword.setImageResource(R.drawable.ic_expand_less);
+        }
+        isPasswordFormExpanded = !isPasswordFormExpanded;
     }
 
     private void changePassword() {
@@ -83,7 +106,11 @@ public class ManageAccountActivity extends AppCompatActivity {
                                     if (updateTask.isSuccessful()) {
                                         Toast.makeText(ManageAccountActivity.this,
                                                 "Password changed successfully", Toast.LENGTH_SHORT).show();
-                                        finish();
+                                        // Clear fields and collapse form
+                                        etCurrentPassword.setText("");
+                                        etNewPassword.setText("");
+                                        etConfirmNewPassword.setText("");
+                                        togglePasswordForm();
                                     } else {
                                         Toast.makeText(ManageAccountActivity.this,
                                                 "Failed to change password: " + updateTask.getException().getMessage(),

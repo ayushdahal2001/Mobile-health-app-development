@@ -55,9 +55,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Change Password"
-                        android:textSize="16sp"
+                        android:textSize="20sp"
                         android:layout_marginStart="16dp"
-                        android:textColor="?attr/colorOnSurface"/>
+                        android:textColor="@color/black"/>
 
                     <ImageView
                         android:id="@+id/ivExpandPassword"
@@ -73,7 +73,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    android:background="@color/black">
 
                     <!-- Current Password -->
                     <com.google.android.material.textfield.TextInputLayout
@@ -88,7 +89,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Current Password"
-                            android:inputType="textPassword"/>
+                            android:inputType="textPassword"
+                            android:textColor="@color/white"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- New Password -->
@@ -104,7 +106,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="New Password"
-                            android:inputType="textPassword"/>
+                            android:inputType="textPassword"
+                            android:textColor="@color/white"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Confirm New Password -->
@@ -120,7 +123,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Confirm New Password"
-                            android:inputType="textPassword"/>
+                            android:inputType="textPassword"
+                            android:textColor="@color/white"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Change Password Button -->

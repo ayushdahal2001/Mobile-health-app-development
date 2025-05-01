@@ -11,11 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Settings Header -->
 
-        <!-- Dark Mode Toggle -->
-
-        <!-- Rest of your settings items -->
 
         <TextView
             android:layout_width="match_parent"
@@ -47,18 +43,6 @@
                 android:layout_gravity="center_vertical" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnLanguage"
-            style="@style/SettingsItemStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Language"
-            android:background="@color/red_500"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:textColor="@color/black"
-            android:layout_marginBottom="8dp"/>
 
         <Button
             android:id="@+id/btnPrivacy"
@@ -69,7 +53,7 @@
             android:background="@color/red_500"
             android:textAllCaps="false"
             android:textSize="16sp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:padding="16dp"
             android:layout_marginBottom="8dp"/>
 
@@ -83,7 +67,7 @@
             android:padding="16dp"
             android:text="Manage Account"
             android:textAllCaps="false"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp" />
 
         <Button

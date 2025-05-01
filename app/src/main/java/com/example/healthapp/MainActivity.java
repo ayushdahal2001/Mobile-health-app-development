@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity {
         Button btnExportData = findViewById(R.id.btnExportData);
         Button btnManageAccount = findViewById(R.id.btnManageAccount);
         Button btnHealthMetrics = findViewById(R.id.btnHealthMetrics);
-        Button btnUpdateProfile = findViewById(R.id.btnUpdateProfile);
+
         Button btnViewHealthData = findViewById(R.id.btnViewHealthData);
         Button btnHome = findViewById(R.id.btnHome);
         Button btnNotification = findViewById(R.id.btnNotification);
