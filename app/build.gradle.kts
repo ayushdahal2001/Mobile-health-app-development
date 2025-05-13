@@ -38,6 +38,7 @@ dependencies {
     implementation(libs.appcompat.v161)
     implementation(libs.constraintlayout.v214)
     implementation(libs.activity.ktx)
+    implementation(libs.firebase.database)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.junit.v115)
@@ -50,10 +51,21 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
-    implementation("com.google.firebase:firebase-analytics")
-    implementation ("com.google.android.material:material:1.10.0")
-    implementation ("com.google.firebase:firebase-auth:22.3.0")
-    implementation ("com.google.android.gms:play-services-auth:20.7.0")
-    implementation ("com.google.firebase:firebase-auth:22.3.0")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation (libs.material.v1100)
+    implementation (libs.google.firebase.auth)
+    implementation (libs.play.services.auth)
+    implementation (libs.google.firebase.auth)
+    implementation (libs.firebase.firestore)
+    implementation (libs.recyclerview)
+    implementation (libs.firebase.database.v2030)
+    implementation (libs.firebase.core)
+    implementation (libs.itext7.core)
+    implementation (libs.core.ktx) // For file operations
+
+
+
+
 }
+

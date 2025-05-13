@@ -28,26 +28,26 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
+                android:background="@drawable/edittext_background"
                 android:gravity="center"
-                android:padding="16dp"
-                android:background="@drawable/card_background">
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <TextView
                     android:id="@+id/tvStepsCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textSize="24sp"
                     android:textColor="#000000"
-                    android:textStyle="bold"/>
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Steps"
-                    android:textSize="14sp"
-                    android:textColor="#666666"/>
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <!-- BPM Card -->
@@ -55,26 +55,26 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
+                android:background="@drawable/edittext_background"
                 android:gravity="center"
-                android:padding="16dp"
-                android:background="@drawable/card_background">
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <TextView
                     android:id="@+id/tvBPMCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textSize="24sp"
                     android:textColor="#000000"
-                    android:textStyle="bold"/>
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BPM"
-                    android:textSize="14sp"
-                    android:textColor="#666666"/>
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <!-- Sleep Card -->
@@ -82,26 +82,26 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
+                android:background="@drawable/edittext_background"
                 android:gravity="center"
-                android:padding="16dp"
-                android:background="@drawable/card_background">
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <TextView
                     android:id="@+id/tvSleepHours"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textSize="24sp"
                     android:textColor="#000000"
-                    android:textStyle="bold"/>
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hours"
-                    android:textSize="14sp"
-                    android:textColor="#666666"/>
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -164,14 +164,14 @@
                 android:orientation="horizontal"
                 android:weightSum="2"
                 android:layout_marginBottom="16dp">
-
                 <Button
-                    android:id="@+id/btnViewHealthData"
+                    android:id="@+id/btnExportData"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="View Health Data"
+                    android:text="Export Data"
                     android:background="@drawable/button_background"/>
+
             </LinearLayout>
 
             <!-- Device Status -->
@@ -226,13 +226,7 @@
                     android:textColor="#FFFFFF"
                     android:layout_marginEnd="8dp"/>
 
-                <Button
-                    android:id="@+id/btnExportData"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Export Data"
-                    android:background="@drawable/button_background"/>
+
             </LinearLayout>
 
 
@@ -244,28 +238,28 @@
                 android:id="@+id/emergencySosArea"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginBottom="24dp"
-                android:padding="16dp"
-                android:background="?attr/selectableItemBackground"
+                android:background="@color/red_500"
                 android:clickable="true"
-                android:focusable="true">
+                android:focusable="true"
+                android:orientation="vertical"
+                android:padding="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Emergency SOS"
-                    android:textSize="16sp"
                     android:textColor="#000000"
-                    android:textStyle="bold"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:text="Hold to activate"
-                    android:textSize="14sp"
                     android:textColor="#666666"
-                    android:layout_marginTop="8dp"/>
+                    android:textSize="14sp" />
             </LinearLayout>
             <!-- Bottom Navigation -->
             <LinearLayout

@@ -6,23 +6,12 @@
     android:padding="16dp"
     android:background="#FFFFFF">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header -->
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Notifications"-->
-<!--            android:textSize="24sp"-->
-<!--            android:textColor="#000000"-->
-<!--            android:textStyle="bold"-->
-<!--            android:layout_marginBottom="16dp"/>-->
-
-        <!-- View Notifications row -->
+        <!-- View Notifications header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,73 +46,12 @@
             android:textStyle="bold"
             android:layout_marginBottom="16dp"/>
 
-        <!-- High Heart Rate Alert Card -->
-        <LinearLayout
+        <!-- Notifications RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/notificationsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@drawable/card_background"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="High Heart Rate Alert"
-                android:textSize="16sp"
-                android:textColor="#000000"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Your heart rate was above normal for 10 minutes."
-                android:textSize="14sp"
-                android:textColor="#666666"
-                android:layout_marginTop="4dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2 hours ago"
-                android:textSize="12sp"
-                android:textColor="#999999"
-                android:layout_marginTop="8dp"/>
-        </LinearLayout>
-
-        <!-- Daily Goal Achieved Card -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@drawable/card_background"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Daily Goal Achieved!"
-                android:textSize="16sp"
-                android:textColor="#000000"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="You've reached your daily step goal."
-                android:textSize="14sp"
-                android:textColor="#666666"
-                android:layout_marginTop="4dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5 hours ago"
-                android:textSize="12sp"
-                android:textColor="#999999"
-                android:layout_marginTop="8dp"/>
-        </LinearLayout>
+            android:layout_marginBottom="16dp"/>
 
         <!-- System Alerts Section -->
         <TextView
@@ -135,72 +63,6 @@
             android:textStyle="bold"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Device Sync Required Card -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@drawable/card_background"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Device Sync Required"
-                android:textSize="16sp"
-                android:textColor="#000000"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Please sync your device to update data."
-                android:textSize="14sp"
-                android:textColor="#666666"
-                android:layout_marginTop="4dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1 hour ago"
-                android:textSize="12sp"
-                android:textColor="#999999"
-                android:layout_marginTop="8dp"/>
-        </LinearLayout>
-
-        <!-- Notification Preferences Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Notification Preferences"
-            android:textSize="20sp"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- Health Alerts Preference -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp"
-            android:background="@drawable/card_background">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Health Alerts"
-                android:textSize="16sp"
-                android:textColor="#000000"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="System Notifications"
-                android:textSize="16sp"
-                android:textColor="#666666"
-                android:gravity="end"/>
-        </LinearLayout>
+        <!-- System notifications RecyclerView can be added here if needed -->
     </LinearLayout>
 </ScrollView>

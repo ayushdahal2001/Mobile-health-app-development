@@ -1,12 +1,11 @@
 package com.example.healthapp;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+import com.google.android.material.tabs.TabLayout;
 
 public class HealthMetricsActivity extends BaseActivity {
 
@@ -15,13 +14,18 @@ public class HealthMetricsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_metrics);
 
+        // Setup ViewPager and TabLayout
+        ViewPager viewPager = findViewById(R.id.viewPager);
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
 
-        Button btnSyncDeviceData = findViewById(R.id.btnSyncDeviceData);
-        Button btnConnectNewDevice = findViewById(R.id.btnConnectNewDevice);
+        HealthMetricsPagerAdapter adapter = new HealthMetricsPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
 
-
-        btnSyncDeviceData.setOnClickListener(v -> showToast("Syncing device data..."));
-        btnConnectNewDevice.setOnClickListener(v -> showToast("Connect new device clicked"));
+        // Set tab titles
+        tabLayout.getTabAt(0).setText("Steps");
+        tabLayout.getTabAt(1).setText("Heart Rate");
+        tabLayout.getTabAt(2).setText("Sleep");
 
     }
 
