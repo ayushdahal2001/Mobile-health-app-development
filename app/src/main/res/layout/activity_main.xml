@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#F5F9FF"
     android:padding="16dp"
-    android:paddingTop="70dp"
+    android:paddingTop="100dp"
     android:paddingBottom="70dp">
 
     <LinearLayout
@@ -14,31 +13,78 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Welcome Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/circle_background_primary"
+                android:contentDescription="Profile"
+                android:src="@drawable/ic_profile_placeholder" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Good Morning!"
+                    android:textColor="#666666"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvUserName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ayush"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
         <!-- Stats Row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginBottom="24dp"
-            android:paddingTop="110dp"
             android:weightSum="3">
 
             <!-- Steps Card -->
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/edittext_background"
+                android:background="@drawable/card_background_blue"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="Steps"
+                    android:src="@drawable/ic_footsteps" />
 
                 <TextView
                     android:id="@+id/tvStepsCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textColor="#000000"
+                    android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -46,26 +92,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Steps"
-                    android:textColor="#666666"
+                    android:textColor="#B3E5FC"
                     android:textSize="14sp" />
             </LinearLayout>
 
             <!-- BPM Card -->
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:background="@drawable/edittext_background"
+                android:background="@drawable/card_background_red"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="Heart Rate"
+                    android:src="@drawable/ic_heart_rate" />
 
                 <TextView
                     android:id="@+id/tvBPMCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textColor="#000000"
+                    android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -73,59 +127,59 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BPM"
-                    android:textColor="#666666"
+                    android:textColor="#FFCDD2"
                     android:textSize="14sp" />
             </LinearLayout>
 
             <!-- Sleep Card -->
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
-                android:background="@drawable/edittext_background"
+                android:background="@drawable/card_background_purple"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="Sleep"
+                    android:src="@drawable/ic_sleep" />
 
                 <TextView
                     android:id="@+id/tvSleepHours"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textColor="#000000"
+                    android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="20dp"
                     android:layout_height="wrap_content"
                     android:text="Hours"
-                    android:textColor="#666666"
+                    android:textColor="#D1C4E9"
                     android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
-
-
-
-
-        <!-- Divider -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#EEEEEE"
-            android:layout_marginVertical="8dp"/>
 
         <!-- Quick Actions Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quick Actions"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:layout_marginBottom="16dp"/>
@@ -140,21 +194,24 @@
 
                 <Button
                     android:id="@+id/btnManageAccount"
+                    style="@style/TextButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
                     android:text="Manage Account"
-                    android:background="@drawable/button_background"
-                    android:layout_marginEnd="8dp"/>
+                    android:drawableTop="@drawable/ic_settings"
+                    android:drawableTint="#2196F3"/>
 
                 <Button
                     android:id="@+id/btnHealthMetrics"
+                    style="@style/TextButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Health Metrics"
-                    android:onClick="onClickBack1"
-                    android:background="@drawable/button_background"/>
+                    android:drawableTop="@drawable/ic_health_logo"
+                    android:drawableTint="#4CAF50"/>
             </LinearLayout>
 
             <!-- Second Row of Actions -->
@@ -163,150 +220,154 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="2"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="8dp">
+
                 <Button
                     android:id="@+id/btnExportData"
+                    style="@style/TextButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
                     android:layout_weight="1"
-                    android:text="Export Data"
-                    android:background="@drawable/button_background"/>
-
-            </LinearLayout>
-
-            <!-- Device Status -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:background="@drawable/card_background"
-                android:layout_marginBottom="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="device status"
-                    android:textSize="16sp"
-                    android:textColor="#000000"/>
-
-                <TextView
-                    android:id="@+id/tvLastSynced"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Last sync time"
-                    android:textSize="14sp"
-                    android:textColor="#666666"
-                    android:layout_marginTop="4dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="connection status"
-                    android:textSize="14sp"
-                    android:textColor="#4CAF50"
-                    android:layout_marginTop="4dp"/>
-            </LinearLayout>
-
-            <!-- Sync and Export Row -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                android:layout_marginBottom="24dp">
-
-                <Button
-                    android:id="@+id/btnSyncDevice"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Sync Device"
-                    android:background="@drawable/primary_button_background"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginEnd="8dp"/>
+                    android:drawableTop="@drawable/ic_data_export"
+                    android:drawableTint="#FF9800"
+                    android:text="Export Data" />
 
 
             </LinearLayout>
+        </LinearLayout>
 
+        <!-- Device Status Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
 
-            <!-- Bottom Navigation -->
-
-
-            <!-- Emergency SOS Section -->
             <LinearLayout
-                android:id="@+id/emergencySosArea"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:background="@color/red_500"
-                android:clickable="true"
-                android:focusable="true"
+                android:layout_height="153dp"
                 android:orientation="vertical"
                 android:padding="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Emergency SOS"
+                    android:text="Device Status"
                     android:textColor="#000000"
-                    android:textSize="16sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="Sync"
+                        android:src="@drawable/ic_sync"
+                        app:tint="#2196F3" />
+
+                    <TextView
+                        android:id="@+id/tvLastSynced"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Last synced: Just now"
+                        android:textColor="#666666"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Hold to activate"
-                    android:textColor="#666666"
-                    android:textSize="14sp" />
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:contentDescription="Connection"
+                        android:src="@drawable/ic_bluetooth_connected"
+                        app:tint="#4CAF50" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Connected to device"
+                        android:textColor="#666666"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
             </LinearLayout>
-            <!-- Bottom Navigation -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:orientation="horizontal"
-                android:background="#FFFFFF"
-                android:elevation="4dp"
-                android:weightSum="3">  <!-- Changed from 4 to 3 -->
+        </androidx.cardview.widget.CardView>
 
-                <!-- Home -->
-                <Button
-                    android:id="@+id/btnHome"
-                    style="@style/BottomMenuButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Home"
-                    android:drawableTop="@drawable/ic_home"/>
+        <!-- Emergency SOS Section -->
+        <!-- Emergency SOS Button - Always Red -->
+        <Button
+            android:id="@+id/btnEmergencySos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:minHeight="80dp"
+            android:text="EMERGENCY SOS\n(HOLD FOR 3 SECONDS)"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="20dp"
+            android:backgroundTint="#FF0000"
+            android:background="@drawable/emergency_button_red"
+            android:drawableTop="@drawable/ic_sos"
+            android:drawableTint="#FFFFFF"
+            android:drawablePadding="10dp"
+            style="@style/EmergencyButtonStyle"/>
 
-                <!-- Notifications -->
-                <Button
-                    android:id="@+id/btnNotification"
-                    style="@style/BottomMenuButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Alerts"
-                    android:drawableTop="@drawable/ic_notification"/>
+        <!-- Bottom Navigation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:background="#FFFFFF"
+            android:elevation="16dp"
+            android:weightSum="3">
 
-                <!-- Settings -->
-                <Button
-                    android:id="@+id/btnSettings"
-                    style="@style/BottomMenuButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Settings"
-                    android:drawableTop="@drawable/ic_settings"/>
-            </LinearLayout>
+            <!-- Home -->
+            <Button
+                android:id="@+id/btnHome"
+                style="@style/BottomNavButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Home"
+                android:drawableTop="@drawable/ic_home"/>
 
-</LinearLayout>
+            <!-- Notifications -->
+            <Button
+                android:id="@+id/btnNotification"
+                style="@style/BottomNavButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Alerts"
+                android:drawableTop="@drawable/ic_notification"/>
 
-
-</LinearLayout>
-
-
-
-
+            <!-- Settings -->
+            <Button
+                android:id="@+id/btnSettings"
+                style="@style/BottomNavButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Settings"
+                android:drawableTop="@drawable/ic_settings"/>
+        </LinearLayout>
+    </LinearLayout>
 </ScrollView>

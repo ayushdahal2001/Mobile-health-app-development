@@ -74,7 +74,7 @@
                     android:orientation="vertical"
                     android:padding="16dp"
                     android:visibility="gone"
-                    android:background="@color/black">
+                    android:background="?android:attr/colorBackgroundFloating">
 
                     <!-- Current Password -->
                     <com.google.android.material.textfield.TextInputLayout
@@ -82,7 +82,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        app:passwordToggleEnabled="true">
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="?android:attr/textColorPrimary">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etCurrentPassword"
@@ -90,42 +91,57 @@
                             android:layout_height="wrap_content"
                             android:hint="Current Password"
                             android:inputType="textPassword"
-                            android:textColor="@color/white"/>
+                            android:textColor="@color/black"
+                            android:theme="@style/PasswordEditTextTheme"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!-- New Password -->
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        app:passwordToggleEnabled="true">
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:background="@drawable/card_background"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="24dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etNewPassword"
+                        <!-- New Password -->
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="New Password"
-                            android:inputType="textPassword"
-                            android:textColor="@color/white"/>
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_marginBottom="16dp"
+                            style="@style/PasswordInputStyle"
+                            app:passwordToggleEnabled="true"
+                            app:passwordToggleTint="@color/white">
 
-                    <!-- Confirm New Password -->
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        app:passwordToggleEnabled="true">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etNewPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="New Password"
+                                android:inputType="textPassword"
+                                android:textColor="@color/black"
+                                android:theme="@style/PasswordEditTextTheme"/>
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/etConfirmNewPassword"
+                        <!-- Confirm New Password -->
+                        <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Confirm New Password"
-                            android:inputType="textPassword"
-                            android:textColor="@color/white"/>
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_marginBottom="16dp"
+                            style="@style/PasswordInputStyle"
+                            app:passwordToggleEnabled="true"
+                            app:passwordToggleTint="@color/white">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etConfirmNewPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Confirm New Password"
+                                android:inputType="textPassword"
+                                android:textColor="@color/black"
+                                android:theme="@style/PasswordEditTextTheme"/>
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
 
                     <!-- Change Password Button -->
                     <Button
@@ -134,40 +150,59 @@
                         android:layout_height="wrap_content"
                         android:text="Update Password"
                         android:textAllCaps="false"
-                        android:backgroundTint="@color/purple_500"
-                        android:textColor="@color/white"/>
+                        android:backgroundTint="?attr/colorPrimary"
+                        android:textColor="@color/black"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <LinearLayout
+        <!-- Emergency Contact Section -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            app:cardElevation="2dp"
+            app:cardCornerRadius="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Emergency Contact Number"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/etEmergencyContact"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter emergency contact number"
-                android:inputType="phone"
-                android:maxLines="1"/>
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <Button
-                android:id="@+id/btnSaveEmergencyContact"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginTop="8dp"
-                android:text="Save"/>
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Emergency Contact Number"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginTop="8dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmergencyContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter emergency contact number"
+                        android:inputType="phone"
+                        android:maxLines="1"
+                        android:textColor="@color/black"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnSaveEmergencyContact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp"
+                    android:text="Save"
+                    android:backgroundTint="?attr/colorPrimary"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </ScrollView>

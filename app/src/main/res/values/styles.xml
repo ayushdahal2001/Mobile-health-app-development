@@ -55,8 +55,67 @@
     <style name="AlertDialogButton" parent="Widget.Material3.Button.TextButton">
         <item name="android:textColor">?attr/colorPrimary</item>
     </style>
+    <style name="TextButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:minHeight">96dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:drawablePadding">8dp</item>
+    </style>
+
+    <style name="EmergencyButton" parent="Widget.AppCompat.Button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">160dp</item>
+        <item name="android:background">@drawable/gradient_red_emergency</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:drawableTint">@color/white</item>
+        <item name="android:padding">24dp</item>
+    </style>
+
+    <style name="BottomNavButton" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:minHeight">72dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:drawablePadding">4dp</item>
+    </style>
+
+    <style name="EmergencyButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:backgroundTintMode">src_over</item>
+        <item name="android:backgroundTint">#FF0000</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:elevation">8dp</item>
+    </style>
+
+    <color name="emergency_red">#FF0000</color>
+    <color name="dialog_text_dark">#212121</color>
 
 
-
+    <style name="EmergencyDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:textColorPrimary">@color/dialog_text_dark</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+    <style name="PasswordInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/outline_color</item>
+        <item name="hintTextColor">@color/hint_color</item>
+        <item name="android:textColorHint">@color/hint_color</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+    </style>
+    <style name="PasswordEditTextTheme" parent="ThemeOverlay.MaterialComponents.Dark">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/white</item>
+    </style>
 
 </resources>

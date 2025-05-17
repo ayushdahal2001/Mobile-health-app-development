@@ -6,6 +6,9 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -65,7 +68,12 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         setContentView(R.layout.activity_main);
+
+
 
 
         // Initialize Firebase
@@ -77,16 +85,18 @@ public class MainActivity extends BaseActivity {
         }
 
         // Initialize buttons
-        Button btnSyncDevice = findViewById(R.id.btnSyncDevice);
-        Button btnExportData = findViewById(R.id.btnExportData);
+
+        Button sosButton = findViewById(R.id.btnEmergencySos);
         Button btnManageAccount = findViewById(R.id.btnManageAccount);
         Button btnHealthMetrics = findViewById(R.id.btnHealthMetrics);
         Button btnHome = findViewById(R.id.btnHome);
         Button btnNotification = findViewById(R.id.btnNotification);
         Button btnSettings = findViewById(R.id.btnSettings);
-
+        Button btnExportData = findViewById(R.id.btnExportData);
         // Emergency SOS long press
-        View emergencySosArea = findViewById(R.id.emergencySosArea);
+        sosButton.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+        sosButton.setBackgroundTintMode(PorterDuff.Mode.SRC_OVER);
+        View emergencySosArea = findViewById(R.id.btnEmergencySos);
         emergencySosArea.setOnTouchListener((v, event) -> {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
@@ -123,12 +133,21 @@ public class MainActivity extends BaseActivity {
         String emergencyNumber = getEmergencyContactNumber();
         vibratePhone();
 
-        new AlertDialog.Builder(this)
+        // Create dialog with explicit theme
+        AlertDialog dialog = new AlertDialog.Builder(this, R.style.EmergencyDialogTheme)
                 .setTitle("Emergency Call")
                 .setMessage("Call " + emergencyNumber + "?")
-                .setPositiveButton("Call", (dialog, which) -> makeEmergencyCall(emergencyNumber))
+                .setPositiveButton("Call", (d, which) -> makeEmergencyCall(emergencyNumber))
                 .setNegativeButton("Cancel", null)
-                .show();
+                .create();
+
+        // Show dialog and then customize button colors
+        dialog.setOnShowListener(d -> {
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.RED);
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+        });
+
+        dialog.show();
     }
 
     private void makeEmergencyCall(String phoneNumber) {
@@ -150,7 +169,7 @@ public class MainActivity extends BaseActivity {
     private String getEmergencyContactNumber() {
         SharedPreferences prefs = getSharedPreferences("HealthAppPrefs", MODE_PRIVATE);
         String savedContact = prefs.getString("emergency_contact", "");
-        return TextUtils.isEmpty(savedContact) ? "911" : savedContact;
+        return TextUtils.isEmpty(savedContact) ? "000" : savedContact;
     }
 
     // PDF Export functionality
