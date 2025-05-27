@@ -67,6 +67,27 @@ public class MainActivity extends BaseActivity {
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        val options = FitnessOptions.builder()
+                .addDataType(DataType.TYPE_STEP_COUNT_DELTA, FitnessOptions.ACCESS_READ)
+                .addDataType(DataType.TYPE_HEART_RATE_BPM, FitnessOptions.ACCESS_READ)
+                .addDataType(DataType.TYPE_SLEEP_SEGMENT, FitnessOptions.ACCESS_READ)
+                .build()
+
+        val account = GoogleSignIn.getAccountForExtension(this, options)
+
+        if (!GoogleSignIn.hasPermissions(account, options)) {
+            GoogleSignIn.requestPermissions(
+                    this,
+                    1001,
+                    account,
+                    options
+            )
+        } else {
+            val fitManager = GoogleFitManager(this)
+            val steps = fitManager.readStepCount()
+            Log.d("FitData", "Steps: $steps")
+        }
+
         super.onCreate(savedInstanceState);
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();

@@ -24,6 +24,7 @@ mpandroidchart = "v3.1.0"
 playServicesAuth = "21.3.0"
 firebaseDatabase = "21.0.0"
 recyclerview = "1.4.0"
+kotlin = "2.1.21"
 
 [libraries]
 activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity" }
@@ -55,4 +56,5 @@ recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "r
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 

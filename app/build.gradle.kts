@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
 
     id("com.google.gms.google-services")
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
@@ -31,6 +32,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
 }
 
 dependencies {
@@ -53,19 +57,17 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
-    implementation (libs.material.v1100)
-    implementation (libs.google.firebase.auth)
-    implementation (libs.play.services.auth)
-    implementation (libs.google.firebase.auth)
-    implementation (libs.firebase.firestore)
-    implementation (libs.recyclerview)
-    implementation (libs.firebase.database.v2030)
-    implementation (libs.firebase.core)
-    implementation (libs.itext7.core)
-    implementation (libs.core.ktx) // For file operations
-
-
-
+    implementation(libs.material.v1100)
+    implementation(libs.google.firebase.auth)
+    implementation(libs.play.services.auth)
+    implementation(libs.google.firebase.auth)
+    implementation(libs.firebase.firestore)
+    implementation(libs.recyclerview)
+    implementation(libs.firebase.database.v2030)
+    implementation(libs.firebase.core)
+    implementation(libs.itext7.core)
+    implementation(libs.core.ktx) // For file operations
+    implementation("com.google.android.gms:play-services-fitness:21.1.0")
 
 }
 
